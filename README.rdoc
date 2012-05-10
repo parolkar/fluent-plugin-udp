@@ -1,0 +1,32 @@
+= UDP input plugin for Fluent event collector
+
+== Overview
+
+*This input plugin allows you to collect incoming events over UDP instead of TCP. It is useful because UDP does not require ACK hence the transaction is completed fasted than TCP
+
+== Installation
+
+    gem install fluent-plugin-udp
+
+== Configuration
+
+    <source>
+      type udp
+      bind <bind_ip>
+      port <binding_udp_port>
+    </source>
+
+
+   For submitting events, if you are using Ruby then you could use this: 
+   <pre>
+    require "socket"
+    UDPSocket.new.send("{\"tag\":\"tagname\",\"key\":\"value\"}", 0, 'hostname', 1234)
+   </pre>
+== Copyright
+
+Copyright:: Copyright (c) 2012 Abhishek Parolkar
+License::   MIT License
+
+
+
+
